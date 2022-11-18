@@ -1,0 +1,127 @@
+/* Global */
+:root {
+  /* Color */
+  --color-white: #ffffff;
+  --color-light-white: #eeeeee;
+  --color-dark-white: #bdbdbd;
+  --color-black: #4d4d4d;
+  --color-dark-grey: #4d4d4d;
+  --color-grey: #616161;
+  --color-light-grey: #f3f4f8;
+  --color-blue: #79abff;
+  --color-dark-blue: #6a96e0;
+  --color-black: #000000;
+
+  /* Font size */
+  --font-large: 32px;
+  --font-medium: 22px;
+  --font-regular: 16px;
+  --font-small: 14px;
+  --font-micro: 12px;
+
+  /* Font weight */
+  --weight-bold: 700;
+  --weight-semi-bold: 600;
+  --weight-regular: 400;
+
+  /* Size */
+  --size-border-radius: 4px;
+
+  /* Animation */
+  --animation-duration: 300ms;
+}
+
+/* Universal tags */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-white);
+}
+
+button {
+  outline: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 20%;
+}
+
+/* header */
+.leave__application__header {
+  background-color: var(--color-blue);
+  padding: 10px 20px;
+  height: 60px;
+}
+
+.backward__icon {
+  margin-top: 2px;
+  display: inline-block;
+  font-size: var(--font-medium);
+}
+
+.leave__application__subject {
+  margin-top: 2px;
+  display: inline-block;
+  color: var(--color-white);
+  font-size: var(--font-medium);
+  font-weight: var(--weight-bold);
+  text-align: center;
+  width: calc(100% - 90px);
+}
+
+.send__icon {
+  margin-top: 8px;
+  float: right;
+}
+
+.send__btn {
+  background: var(--color-dark-blue);
+  font-size: var(--font-small);
+  color: var(--color-white);
+}
+
+.fa-solid {
+  color: var(--color-white);
+}
+
+/* main */
+
+.leave__application__container {
+  position: relative;
+  /* display: flex; */
+  /* justify-content: space-between; */
+}
+
+.leave__application__container.block_container {
+  display: block;
+}
+
+.leave__applicationn__title {
+  height: 60px;
+  padding: 4px 8px;
+  display: inline-block;
+  background-color: var(--color-light-grey);
+  font-weight: var(--weight-bold);
+  font-size: var(--font-small);
+}
+.leave__application__name {
+  position: absolute;
+  display: inline-block;
+  height: 60px;
+  text-align: center;
+  transform: translate(-50%,-50%)
+  background-color: red;
+  width: calc(100%-90px);
+  left: 50%;
+  top: 50%;
+}
+.search__icon {
+  height: 60px;
+  float: right;
+}
