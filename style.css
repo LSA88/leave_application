@@ -200,3 +200,19 @@ button {
   background-color: var(--color-grey);
   z-index: 99;
 }
+
+.approval_employee {
+  background-color: var(--color-blue);
+  padding: 4px 8px;
+  border-radius: 14px;
+  color: var(--color-white);
+}
+
+.name {
+  font-size: var(--font-small);
+  font-weight: var(--weight-semi-bold);
+}
+
+.position {
+  font-size: var(--font-micro);
+}
