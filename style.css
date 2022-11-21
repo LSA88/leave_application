@@ -216,3 +216,8 @@ button {
 .position {
   font-size: var(--font-micro);
 }
+
+.trash__btn {
+  background-color: var(--color-blue);
+  padding: 0;
+}
