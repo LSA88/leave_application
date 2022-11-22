@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Approval Line</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="approval.css" />
+    <script
+      src="https://kit.fontawesome.com/cedd8ea2fb.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+    <!-- header -->
+    <section class="leave__application__header">
+      <a href="#" class="backward__icon">
+        <i class="fa-solid fa-chevron-left"></i>
+      </a>
+      <div class="leave__application__subject">결재 라인</div>
+      <div class="icon__box">
+        <button class="send__btn">확정</button>
+      </div>
+    </section>
+
+    <!-- main -->
+    <section class="approval__line__wrap">
+      <div class="approval__line__container">
+        <div class="approval__line__list">사용자 결재선</div>
+        <div class="approval__line__list__content">
+          <button class="user__approval on" onclick="select();">
+            -선택-<i class="fa-solid fa-caret-down"></i>
+          </button>
+          <ul class="listbox" id="listbox">
+            <li><button class="list">휴가</button></li>
+            <li><button class="list">전표(9시이전)</button></li>
+            <li><button class="list">전표(9시이후)</button></li>
+          </ul>
+        </div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="approval__line__container subject">
+        <div class="approval__line__list subject">결재선</div>
+        <div class="icon__box">
+          <button class="address__btn">
+            <i class="fa-solid fa-address-book"></i>
+          </button>
+        </div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="approval__line__container">
+        <div class="order__box"></div>
+        <div class="approval__line__method me">기안</div>
+        <div class="approval__line__emplyee me">
+          <span>이상아</span>
+          <span>사원</span>
+          <span>전산팀</span>
+        </div>
+        <div class="icon__box"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="approval__line__container">
+        <div class="order__box">
+          <button class="order__btn">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+        <div class="approval__line__method">순차합의▼</div>
+        <div class="approval__line__emplyee">
+          <span>최민웅</span>
+          <span>대리</span>
+          <span>경영기획지원팀</span>
+        </div>
+        <div class="icon__box">
+          <i class="fa-solid fa-trash-can"></i>
+        </div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="approval__line__container">
+        <div class="order__box">
+          <button class="order__btn">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+        <div class="approval__line__method">후결▼</div>
+        <div class="approval__line__emplyee">
+          <span>정재홍</span>
+          <span>차장</span>
+          <span>전산팀</span>
+        </div>
+        <div class="icon__box">
+          <i class="fa-solid fa-trash-can"></i>
+        </div>
+      </div>
+      <div class="divider"></div>
+    </section>
+  </body>
+</html>
