@@ -5,13 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Approval Line</title>
-    <link rel="stylesheet" href="main.css" />
-    <link rel="stylesheet" href="approval.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/approval.css" />
     <script
       src="https://kit.fontawesome.com/cedd8ea2fb.js"
       crossorigin="anonymous"
     ></script>
-    <script src="main.js" defer></script>
+    <script src="js/modal.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   </head>
   <body>
     <!-- header -->
@@ -54,8 +55,8 @@
 
       <div class="approval__line__container">
         <div class="order__box"></div>
-        <div class="approval__line__method me">기안</div>
-        <div class="approval__line__emplyee me">
+        <div class="approval__line__method__me">기안</div>
+        <div class="approval__line__emplyee__me">
           <span>이상아</span>
           <span>사원</span>
           <span>전산팀</span>
@@ -99,6 +100,22 @@
         </div>
       </div>
       <div class="divider"></div>
+
+      <!--modal-->
+      <div id="modal-wrapper">
+        <div id="modal-overlay"></div>
+        <div id="modal-content">
+          <div class="approval__method__lists">결재 방법</div>
+          <div class="divider"></div>
+          <div class="approval__method__list">일반결재</div>
+          <div class="divider"></div>
+          <div class="approval__method__list">순차합의</div>
+          <div class="divider"></div>
+          <div class="approval__method__list">병렬합의</div>
+          <div class="divider"></div>
+          <div class="approval__method__list">후결</div>
+        </div>
+      </div>
     </section>
   </body>
 </html>

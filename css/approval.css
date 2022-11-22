@@ -35,7 +35,7 @@ ul {
   width: 95%;
   border: 1px solid var(--color-dark-grey);
   border-radius: 10px;
-  padding: 12px 13px;
+  padding: 8px 10px;
   font-weight: var(--weight-regular);
   font-size: var(--font-micro);
   background-color: var(--color-white);
@@ -121,7 +121,10 @@ ul {
   text-align: center;
 }
 
-.approval__line__method.me {
+.approval__line__method__me {
+  display: inline-block;
+  text-align: center;
+  width: 64px;
   font-size: var(--font-regular);
   font-weight: var(--weight-semi-bold);
 }
@@ -132,7 +135,8 @@ ul {
   width: 50%;
 }
 
-.approval__line__emplyee.me {
+.approval__line__emplyee__me {
+  display: inline-block;
   font-size: var(--font-regular);
   font-weight: var(--weight-semi-bold);
 }
@@ -142,4 +146,20 @@ ul {
   color: var(--color-blue);
   font-size: var(--font-medium);
   margin-right: 10px;
+}
+
+/* modal */
+
+.approval__method__lists {
+  padding: 10px 20px;
+  font-size: var(--font-medium);
+  font-weight: var(--weight-bold);
+  text-align: center;
+}
+
+.approval__method__list {
+  padding: 10px 20px;
+  text-align: center;
+  font-size: var(--font-regular);
+  font-weight: var(--weight-regular);
 }

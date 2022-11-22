@@ -5,12 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MOBILE APPLICATION FOR LEAVE</title>
-    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="css/main.css" />
     <script
       src="https://kit.fontawesome.com/cedd8ea2fb.js"
       crossorigin="anonymous"
     ></script>
-    <script src="main.js" defer></script>
+    <script src="js/modal.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   </head>
   <body>
     <!-- header -->
@@ -109,6 +110,74 @@
         <div class="icon__box"></div>
       </div>
       <div class="divider"></div>
+
+      <!--modal-->
+      <div id="modal-wrapper">
+        <div id="modal-overlay"></div>
+          <div id="modal-content">
+            <div class="search__employee">사원 검색</div>
+            <div class="input__name">
+              <form class="search__input">
+                <input type="text" class="input search">
+              </form>
+            </div>
+            <div class="employee__items">
+              <div class="select">
+                <input type="radio" id="select" name="shop"><label for="select"></label>
+              </div>
+              <div class="employee__item">
+                <span>전산팀</span>
+                <span>차장</span>
+                <span>정재홍</span>
+              </div>
+            </div>
+
+            <div class="employee__items">
+              <div class="select">
+                <input type="radio" id="select" name="shop"><label for="select"></label>
+              </div>
+              <div class="employee__item">
+                <span>경영기획지원팀</span>
+                <span>대리</span>
+                <span>최민웅</span>
+              </div>
+            </div>
+
+            <div class="employee__items">
+              <div class="select">
+                <input type="radio" id="select" name="shop"><label for="select"></label>
+              </div>
+              <div class="employee__item">
+                <span>경영기획지원팀</span>
+                <span>차장</span>
+                <span>송영섭</span>
+              </div>
+            </div>
+
+            <div class="employee__items">
+              <div class="select">
+                <input type="radio" id="select" name="shop"><label for="select"></label>
+              </div>
+              <div class="employee__item">
+                <span>시설관리팀</span>
+                <span>차장</span>
+                <span>양성수</span>
+              </div>
+            </div>
+
+            <div class="employee__items">
+              <div class="select">
+                <input type="radio" id="select" name="shop"><label for="select"></label>
+              </div>
+              <div class="employee__item">
+                <span>영업본부팀</span>
+                <span>본부장</span>
+                <span>유승희</span>
+              </div>
+            </div>
+
+          </div>
+      </div>
       </section>
 
       <!-- approval--> 
