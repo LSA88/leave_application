@@ -34,11 +34,11 @@
           <button class="user__approval on" onclick="select();">
             -선택-<i class="fa-solid fa-caret-down"></i>
           </button>
-          <ul class="listbox" id="listbox">
+          <!-- <ul class="listbox" id="listbox">
             <li><button class="list">휴가</button></li>
             <li><button class="list">전표(9시이전)</button></li>
             <li><button class="list">전표(9시이후)</button></li>
-          </ul>
+          </ul> -->
         </div>
       </div>
       <div class="divider"></div>
@@ -57,9 +57,7 @@
         <div class="order__box"></div>
         <div class="approval__line__method__me">기안</div>
         <div class="approval__line__emplyee__me">
-          <span>이상아</span>
-          <span>사원</span>
-          <span>전산팀</span>
+          <span class="employee__me">이상아 사원 전산팀</span>
         </div>
         <div class="icon__box"></div>
       </div>
@@ -71,14 +69,14 @@
             <i class="fas fa-bars"></i>
           </button>
         </div>
-        <button class="approval__line__method">
-          순차합의
-          <i class="fa-solid fa-caret-down"></i>
-        </button>
+        <div class="approval__line__method">
+          <button class="method__btn">
+            순차합의
+            <i class="fa-solid fa-caret-down"></i>
+          </button>
+        </div>
         <div class="approval__line__emplyee">
-          <span>최민웅</span>
-          <span>대리</span>
-          <span>경영기획지원팀</span>
+          <span>최민웅 대리 경영기획지원팀</span>
         </div>
         <div class="icon__box">
           <i class="fa-solid fa-trash-can"></i>
@@ -92,14 +90,35 @@
             <i class="fas fa-bars"></i>
           </button>
         </div>
-        <button class="approval__line__method">
-          후결
-          <i class="fa-solid fa-caret-down"></i>
-        </button>
+        <div class="approval__line__method">
+          <button class="method__btn">
+            후결
+            <i class="fa-solid fa-caret-down"></i>
+          </button>
+        </div>
         <div class="approval__line__emplyee">
-          <span>정재홍</span>
-          <span>차장</span>
-          <span>전산팀</span>
+          <span>정재홍 차장 전산팀</span>
+        </div>
+        <div class="icon__box">
+          <i class="fa-solid fa-trash-can"></i>
+        </div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="approval__line__container">
+        <div class="order__box">
+          <button class="order__btn">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+        <div class="approval__line__method">
+          <button class="method__btn">
+            일반결재
+            <i class="fa-solid fa-caret-down"></i>
+          </button>
+        </div>
+        <div class="approval__line__emplyee">
+          <span>정재홍 차장 경영기획지원팀</span>
         </div>
         <div class="icon__box">
           <i class="fa-solid fa-trash-can"></i>

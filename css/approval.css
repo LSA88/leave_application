@@ -42,11 +42,10 @@ ul {
   appearance: none;
   text-align: left;
 }
-
+/* 
 .listbox {
   width: 200px;
   list-style: none;
-  /* background: #ffffff; */
   border: 1px solid #c4c4c4;
   box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
@@ -69,7 +68,7 @@ ul {
   border-radius: 8px;
   box-sizing: border-box;
   text-align: left;
-}
+} */
 
 .fa-caret-down {
   float: right;
@@ -115,13 +114,16 @@ ul {
 }
 
 .approval__line__method {
+  width: 50px;
   display: inline-block;
-  width: 64px;
   font-size: var(--font-micro);
   text-align: center;
 }
 
-.fa-caret-down {
+.method__btn {
+  font-size: 8px;
+  padding: 0;
+  background-color: var(--color-white);
 }
 
 .approval__line__method__me {
@@ -167,8 +169,9 @@ ul {
   font-weight: var(--weight-regular);
 }
 
-@media (max-width: 280px) {
+@media (max-width: 359px) {
   .approval__line__list {
+    font-size: var(--font-small);
     padding: 0 4px 0 2px;
   }
 
@@ -186,7 +189,7 @@ ul {
   }
 
   .approval__line__method {
-    width: 39px;
+    width: 22%;
   }
 
   .order__box {
@@ -210,5 +213,13 @@ ul {
 
   .approval__line__list.subject {
     margin-left: 10px;
+  }
+
+  .employee__me {
+    font-size: var(--font-regular);
+  }
+
+  span {
+    font-size: 10px;
   }
 }

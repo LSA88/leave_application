@@ -323,7 +323,7 @@ label input[type="radio"]:checked:after {
   padding: 0;
 }
 
-@media (max-width: 280px) {
+@media (max-width: 359px) {
   :root {
     /* Font size */
     --font-large: 20px;
@@ -331,5 +331,23 @@ label input[type="radio"]:checked:after {
     --font-regular: 14px;
     --font-small: 12px;
     --font-micro: 10px;
+  }
+
+  .search__input {
+    padding: 0 10px;
+  }
+
+  .employee__items__container {
+    line-height: 50px;
+  }
+
+  input[type="radio"] {
+    margin: 0px 4px 0px 4px;
+  }
+
+  label input[type="radio"]:after {
+    width: 20px;
+    height: 20px;
+    font-size: var(--font-regular);
   }
 }
