@@ -114,14 +114,14 @@ ul {
 }
 
 .approval__line__method {
-  width: 50px;
+  width: 56px;
   display: inline-block;
   font-size: var(--font-micro);
   text-align: center;
 }
 
 .method__btn {
-  font-size: 8px;
+  font-size: var(--font-micro);
   padding: 0;
   background-color: var(--color-white);
 }
@@ -189,6 +189,7 @@ ul {
   }
 
   .approval__line__method {
+    font-size: 8px;
     width: 22%;
   }
 
