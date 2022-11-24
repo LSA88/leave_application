@@ -121,6 +121,9 @@ ul {
   text-align: center;
 }
 
+.fa-caret-down {
+}
+
 .approval__line__method__me {
   display: inline-block;
   text-align: center;
@@ -162,4 +165,50 @@ ul {
   text-align: center;
   font-size: var(--font-regular);
   font-weight: var(--weight-regular);
+}
+
+@media (max-width: 280px) {
+  .approval__line__list {
+    padding: 0 4px 0 2px;
+  }
+
+  .approval__line__container.subject {
+    height: 70px;
+    line-height: 70px;
+  }
+
+  .approval__line__emplyee {
+    width: 54%;
+  }
+
+  .approval__line__method__me {
+    width: 40px;
+  }
+
+  .approval__line__method {
+    width: 39px;
+  }
+
+  .order__box {
+    width: 25px;
+  }
+
+  .order__btn {
+    width: 25px;
+    height: 25px;
+  }
+
+  .icon__box {
+    margin-right: 2px;
+  }
+
+  .address__btn {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+  }
+
+  .approval__line__list.subject {
+    margin-left: 10px;
+  }
 }

@@ -174,9 +174,6 @@ label input[type="radio"]:checked:after {
   text-align: center;
 }
 
-.icon__box {
-}
-
 .send__btn {
   background: var(--color-dark-blue);
   font-size: var(--font-small);
@@ -191,9 +188,6 @@ label input[type="radio"]:checked:after {
 
 .leave__application__container {
   position: relative;
-  /* display: flex;
-  justify-content: space-between;
-  align-items: center; */
   height: 60px;
   line-height: 60px;
   background-color: var(--color-white);
@@ -209,12 +203,16 @@ label input[type="radio"]:checked:after {
 }
 
 .leave__application__content {
+  font-size: var(--font-regular);
   position: absolute;
   display: inline-block;
   margin-left: 0;
-  width: 60%;
+  width: 55%;
   margin-left: 10px;
   text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .input {
@@ -288,9 +286,12 @@ label input[type="radio"]:checked:after {
   position: absolute;
   display: inline-block;
   margin-left: 0;
-  width: 60%;
+  width: 55%;
   margin-left: 10px;
   text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .divider.special {
@@ -320,4 +321,15 @@ label input[type="radio"]:checked:after {
 .trash__btn {
   background-color: var(--color-blue);
   padding: 0;
+}
+
+@media (max-width: 280px) {
+  :root {
+    /* Font size */
+    --font-large: 20px;
+    --font-medium: 16px;
+    --font-regular: 14px;
+    --font-small: 12px;
+    --font-micro: 10px;
+  }
 }
