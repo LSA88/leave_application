@@ -234,6 +234,11 @@ label input[type="radio"]:checked:after {
   float: right;
 }
 
+.icon__box.icon__width {
+  text-align: center;
+  width: 30px;
+}
+
 .search__btn {
   font-size: var(--font-medium);
   background-color: var(--color-white);
