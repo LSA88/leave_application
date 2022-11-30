@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="Ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ID=edge, chrome=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <title></title>
+    <link
+      rel="stylesheet"
+      href="/css/common.css?v=12"
+      type="text/css"
+      media="all"
+    />
+    <%@include file="/common/ax5_css_include.jsp"%>
+    <link
+      rel="stylesheet"
+      href="/css/vaccation_creator.css?v=10"
+      type="text/css"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      href="/css/print-preview.css?v=10"
+      type="text/css"
+      media="screen"
+    />
+  </head>
+  <body>
+    <div id="wrap">
+      <%@include file="/approval/document_creator_header.jsp"%> //header 부분
+      <div id="container">
+        <div id="content" class="">
+          <div id="con_area">
+            <div id="con_main" class="">
+              <div class="con_right" style="padding: 0px 5px">
+                <div class="app_contents_block">
+                  <div style="text-align: center; height: 3em">
+                    <span id="document_pumname"></span>
+                  </div>
+                  <form
+                    id="doc_create_form"
+                    name="doc_create_form"
+                    method="post"
+                    onsubmit="return false"
+                  >
+                    <input
+                      type="hidden"
+                      id="docu_base_state"
+                      name="docu_base_state"
+                      value=""
+                    />
+                    <input type="hidden" id="pum_id" name="pum_id" value="" />
+                    <input type="hidden" id="erp_id" name="erp_id" value="" />
+                    <input
+                      type="hidden"
+                      id="docu_sort"
+                      name="docu_sort"
+                      value=""
+                    />
+                    <input
+                      type="hidden"
+                      id="va_sort_2"
+                      name="va_sort_2"
+                      value=""
+                    />
+                    <input type="hidden" id="mode" name="mode" value="" />
+                    <input type="hidden" id="parm" name="parm" value="" />
+                    <input
+                      type="hidden"
+                      id="approval_line"
+                      name="approval_line"
+                      value=""
+                    />
+                    <input
+                      type="hidden"
+                      id="attach_images"
+                      name="attach_images"
+                      value=""
+                    />
+                    <input
+                      type="hidden"
+                      id="attach_files"
+                      name="attach_files"
+                      value=""
+                    />
+                    <input
+                      type="hidden"
+                      id="item_rows"
+                      name="item_rows"
+                      value=""
+                    />
+                    <input
+                      type="hidden"
+                      id="cnt_saup_numb"
+                      name="cnt_saup_numb"
+                      value=""
+                    />
+                    <input
+                      type="hidden"
+                      id="temp_docu_id"
+                      name="temp_docu_id"
+                      value=""
+                    />
+                    <input type="hidden" id="cnt_id" name="cnt_id" value="" />
+                    <input
+                      type="hidden"
+                      id="contract_code"
+                      name="contract_code"
+                      value=""
+                    />
+                    <div class="document_approval_lines">
+                      <table id="document_approval_lines_tb">
+                        <tbody>
+                          <tr id="app_line_title">
+                            <!-- /approval/document_creator_header.js -> selectApprovalLine()  -->
+                          </tr>
+                          <tr id="app_line_users">
+                            <!-- /approval/document_creator_header.js -> selectApprovalLine() -->
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="document_contents_body">
+                      <table id="document_contents_body_tb">
+                        <colgroup>
+                          <col width="100px" />
+                          <col width="*" />
+                        </colgroup>
+                        <tbody>
+                          <tr style="display: none">
+                            <th class="document_summary_title">부팀명</th>
+                            <td class="document_summary">
+                              <input
+                                type="search"
+                                id="team_name"
+                                name="team_name"
+                                placeholder=""
+                                readonly
+                              />
+                            </td>
+                          </tr>
+                          <tr class="" style="display: none">
+                            <th class="document_summary_title">기안자</th>
+                            <td class="document_summary">
+                              <input
+                                type="search"
+                                id="user_name"
+                                name="user_name"
+                                placeholder=""
+                                readonly
+                              />
+                            </td>
+                          </tr>
+                          <!-- 문서종류별:휴가계 시작 -->
+                          <% if("1".equals(pum_id)){ %>
+                          <tr class="">
+                            <th class="document_summary_title">
+                              신청자<br />(휴가자)
+                            </th>
+                            <td class="document_summary">
+                              <input
+                                type="hidden"
+                                id="va_sabun"
+                                name="va_sabun"
+                              />
+                              <input
+                                type="search"
+                                id="va_sabun_nm"
+                                name="va_sabun_nm"
+                                title="대리하여 신청하는 경우 당사자를 지정하십시오."
+                                placeholder="지정하지 않을 경우 작성자 본인"
+                                readonly
+                              />
+                              <a
+                                class="search_button"
+                                href="#"
+                                onclick="search_single_user('va_sabun','va_sabun_nm','changeVacationUser');"
+                                ><i class="fa fa-search" aria-hidden="true"></i
+                              ></a>
+                            </td>
+                          </tr>
+                          <tr class="">
+                            <th class="document_summary_title">부담당자</th>
+                            <td class="document_summary">
+                              <input
+                                type="hidden"
+                                id="va_busabun"
+                                name="va_busabun"
+                              />
+                              <input
+                                type="search"
+                                id="va_buname"
+                                name="va_buname"
+                                placeholder="휴가자의 업무를 대리할 임직원"
+                                readonly
+                              />
+                              <a
+                                class="search_button"
+                                href="#"
+                                onclick="search_sub_user('va_busabun','va_buname', 'changeSubUser');"
+                                ><i class="fa fa-search" aria-hidden="true"></i
+                              ></a>
+                            </td>
+                          </tr>
+                          <tr class="">
+                            <th class="document_summary_title">휴가기간</th>
+                            <td class="document_summary">
+                              <div>
+                                <input
+                                  type="date"
+                                  class="vacation_calc_obj"
+                                  id="va_start_date"
+                                  name="va_start_date"
+                                />
+                                <span>~</span>
+                                <input
+                                  type="date"
+                                  class="vacation_calc_obj"
+                                  id="va_end_date"
+                                  name="va_end_date"
+                                  readonly
+                                />
+                                <a
+                                  class="search_button"
+                                  href="#"
+                                  onclick="view_vacation_list();"
+                                  ><i
+                                    class="fa fa-calendar"
+                                    aria-hidden="true"
+                                  ></i>
+                                  휴가내역
+                                </a>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr class="">
+                            <td class="document_summary" colspan="2">
+                              <div>
+                                <table
+                                  style="
+                                    border-collapse: collapse;
+                                    border: 1px solid #baccdd;
+                                    column-spacing: 0px;
+                                    padding: 3px;
+                                    width: 100%;
+                                  "
+                                >
+                                  <thead>
+                                    <tr
+                                      style="
+                                        background: #efefef;
+                                        text-align: center;
+                                      "
+                                    >
+                                      <th
+                                        style="background: #efefef"
+                                        width="16%"
+                                      >
+                                        종류
+                                      </th>
+                                      <th
+                                        style="background: #efefef"
+                                        width="16%"
+                                      >
+                                        잔여일수
+                                      </th>
+                                      <th
+                                        style="background: #efefef"
+                                        width="12%"
+                                      >
+                                        휴가일수
+                                      </th>
+                                      <th
+                                        style="background: #efefef"
+                                        width="22%"
+                                      >
+                                        반차&nbsp;[&nbsp;<input
+                                          type="radio"
+                                          class="vacation_calc_obj"
+                                          id="va_sort_9"
+                                          name="va_param"
+                                          value="9"
+                                          checked
+                                        /><label for="va_sort_9">미사용</label>]
+                                      </th>
+                                    </tr>
+                                  </thead>
+                                  <tbody id="vacation_list">
+                                    <tr style="text-align: center">
+                                      <th>체력단련</th>
+                                      <th>
+                                        <span id="fitness_remainder"></span>
+                                      </th>
+                                      <td>
+                                        <input
+                                          type="number"
+                                          min="0"
+                                          class="va_days vacation_calc_obj"
+                                          id="che_want_cnt"
+                                          name="che_want_cnt"
+                                          value="0"
+                                        />
+                                      </td>
+                                      <th>
+                                        <input
+                                          type="radio"
+                                          class="vacation_calc_obj"
+                                          id="va_sort_1_am"
+                                          name="va_param"
+                                          value="0"
+                                        />
+                                        <label for="va_sort_1_am">오전</label>
+                                        <input
+                                          type="radio"
+                                          class="vacation_calc_obj"
+                                          id="va_sort_1_pm"
+                                          name="va_param"
+                                          value="1"
+                                        />
+                                        <label for="va_sort_1_pm">오후</label>
+                                      </th>
+                                    </tr>
+                                    <tr style="text-align: center">
+                                      <th>대체휴가</th>
+                                      <th>
+                                        <span id="alternative_remainder"></span>
+                                      </th>
+                                      <td>
+                                        <input
+                                          type="number"
+                                          min="0"
+                                          class="va_days vacation_calc_obj"
+                                          id="de_want_cnt"
+                                          name="de_want_cnt"
+                                          value="0"
+                                        />
+                                      </td>
+                                      <td>&nbsp;</td>
+                                    </tr>
+                                    <tr style="text-align: center">
+                                      <th>연차휴가</th>
+                                      <th>
+                                        <span id="annual_remainder"></span>
+                                      </th>
+                                      <td>
+                                        <input
+                                          type="number"
+                                          min="0"
+                                          class="va_days vacation_calc_obj"
+                                          id="yen_want_cnt"
+                                          name="yen_want_cnt"
+                                          value="0"
+                                        />
+                                      </td>
+                                      <th>
+                                        <input
+                                          type="radio"
+                                          class="vacation_calc_obj"
+                                          id="va_sort_3_am"
+                                          name="va_param"
+                                          value="2"
+                                        />
+                                        <label for="va_sort_3_am">오전</label>
+                                        <input
+                                          type="radio"
+                                          class="vacation_calc_obj"
+                                          id="va_sort_3_pm"
+                                          name="va_param"
+                                          value="3"
+                                        />
+                                        <label for="va_sort_3_pm">오후</label>
+                                      </th>
+                                    </tr>
+                                    <tr style="text-align: center">
+                                      <th colspan="2">
+                                        <select
+                                          id="etc_vacation_list"
+                                          name="va_sort_4"
+                                          code="CMTONG"
+                                          class="w_100_select vacation_calc_obj"
+                                        ></select>
+                                      </th>
+                                      <td>
+                                        <input
+                                          type="number"
+                                          min="0"
+                                          class="va_days vacation_calc_obj"
+                                          id="etc_want_cnt"
+                                          name="etc_want_cnt"
+                                          value="0"
+                                        />
+                                      </td>
+                                      <td></td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </td>
+                          </tr>
+                          <% } // 문서종류별:휴가계 종료 %> <%
+                          if("1".equals(pum_id)){ %>
+                          <input
+                            type="hidden"
+                            id="docu_title"
+                            name="docu_title"
+                            value="휴가신청"
+                          />
+                          <% } else {%>
+                          <tr>
+                            <th
+                              class="document_summary_title"
+                              id="docu_title_label"
+                            >
+                              제 목
+                            </th>
+                            <td class="document_summary" colspan="5">
+                              <input
+                                type="text"
+                                id="docu_title"
+                                name="docu_title"
+                                placeholder="문서의 제목을 입력하십시오."
+                              />
+                            </td>
+                          </tr>
+                          <% } %> <% if("1".equals(pum_id) || "6".equals(pum_id)
+                          || "7".equals(pum_id) || "12".equals(pum_id) ||
+                          "3".equals(pum_id)|| "4".equals(pum_id) ||
+                          "13".equals(pum_id) || "9".equals(pum_id) ||
+                          "10".equals(pum_id) || "11".equals(pum_id)){ // %>
+                          <tr class="  ">
+                            <th class="document_summary_title">공람지정</th>
+                            <td class="document_summary" colspan="5">
+                              <input
+                                type="hidden"
+                                id="open_men_id"
+                                name="open_men_id"
+                                value=""
+                              />
+                              <input
+                                type="hidden"
+                                id="open_men_nm"
+                                name="open_men_nm"
+                                value=""
+                              />
+                              <input
+                                type="hidden"
+                                id="va_start_date"
+                                name="va_start_date"
+                              />
+                              <input
+                                type="hidden"
+                                id="va_end_date"
+                                name="va_end_date"
+                              />
+
+                              <div id="share_user_list"></div>
+                              <a
+                                class="search_button"
+                                href="#"
+                                onclick="open_add_user();"
+                                ><i class="fa fa-search" aria-hidden="true"></i
+                              ></a>
+                            </td>
+                          </tr>
+                          <% } %>
+                          <tr>
+                            <td colspan="6" class="document_contents">
+                              <div
+                                style="
+                                  padding: 0;
+                                  display: none;
+                                  visiblity: hidden;
+                                "
+                                data-btn-wrap
+                              >
+                                <h3>control</h3>
+                                <button
+                                  class="btn btn-default"
+                                  data-upload-btn="getUploadedFiles"
+                                >
+                                  getUploadedFiles
+                                </button>
+                                <button
+                                  class="btn btn-default"
+                                  data-upload-btn="removeFileAll"
+                                >
+                                  removeFileAll
+                                </button>
+                                <input
+                                  type="button"
+                                  value="이미지 정보"
+                                  onclick="showImageInfo()"
+                                />
+                              </div>
+                              <textarea
+                                id="docu_detail_long"
+                                name="docu_detail_long"
+                              ></textarea>
+                              <div
+                                data-ax5uploader="upload1"
+                                id="file_attach_block"
+                              >
+                                <input
+                                  type="hidden"
+                                  name="old_key_name"
+                                  value="docu_id"
+                                />
+                                <input
+                                  type="hidden"
+                                  name="new_key_name"
+                                  value="next_docu_id"
+                                />
+                                <input
+                                  type="hidden"
+                                  id="docu_id"
+                                  name="docu_id"
+                                  value=""
+                                />
+                                <input
+                                  type="hidden"
+                                  id="next_docu_id"
+                                  name="next_docu_id"
+                                  value=""
+                                />
+                                <button
+                                  data-ax5uploader-button="selector"
+                                  class="btn btn-primary"
+                                  style="display: none"
+                                >
+                                  Select File (*/*)
+                                </button>
+                                <div
+                                  data-uploaded-box="upload1"
+                                  data-ax5uploader-uploaded-box="inline"
+                                ></div>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%@include file="/common/ax5_js_include.jsp"%>
+
+    <script
+      src="/javascript/script/common.js?v=4"
+      type="text/javascript"
+    ></script>
+    <script
+      src="/javascript/script/common_sub.js"
+      type="text/javascript"
+    ></script>
+
+    <script
+      src="/javascript/script/ax5common.js?v=3"
+      type="text/javascript"
+    ></script>
+
+    <script type="text/javascript" src="/cheditor/cheditor.js?v=4"></script>
+
+    <!-- CodeAction.do에서 코드자료를 조회하여 콤보(<select...>)박스를 설정할 경우  -->
+    <script
+      src="/javascript/script/combo_load.js?v=2"
+      type="text/javascript"
+    ></script>
+
+    <script src="/common/file_uploader.js?v=1" type="text/javascript"></script>
+
+    <!-- 검색 팝업을 사용할 경우...(결재현황 조회 팝업) -->
+    <script
+      src="/popup/search_popup_caller.js?v=8"
+      type="text/javascript"
+    ></script>
+
+    <script
+      src="/javascript/jQuery/jquery.print-preview.js"
+      type="text/javascript"
+      charset="utf-8"
+    ></script>
+
+    <script src="vaccation_creator.js?v=74" type="text/javascript"></script>
+    <script src="/erp/erp.js?v=71" type="text/javascript"></script>
+    <script src="/erp/jagum_master.js?v=3" type="text/javascript"></script>
+
+    <script
+      src="document_creator_header.js?v=40"
+      type="text/javascript"
+    ></script>
+    <script type="text/javascript">
+      function init_info() {
+        init_loginuser_info(
+          "<%=header_user_id%>",
+          "<%=header_user_name%>",
+          "<%=header_dept_name%>",
+          "<%=header_empl_code%>",
+          "<%=header_men_level_code%>",
+          "<%=header_men_level%>"
+        );
+      }
+    </script>
+  </body>
+</html>
